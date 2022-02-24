@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <string>
 using namespace std;
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
@@ -52,7 +53,39 @@ vector <int> Compare_the_triples_2(vector<int> a, vector<int> b){
 	return resultado;
 }
 
+string time_conversion_1(string s){	
+	int horas = stoi(s.substr(0,2));
+	if(s.substr(8) == "AM"){
+		if(horas == 12){
+			horas = 0;
+		}
+		if(horas < 10){
+			return "0"+ to_string(horas) + s.substr(2,6);
+		}
+		return to_string(horas) + s.substr(2,6);
+	}
+	else{
+		if(horas != 12){
+			horas +=12;
+		}
+		return to_string(horas) +s.substr(2,6);
+	}
+}
 
+string time_conversion_2(string s){	
+	int horas = stoi(s.substr(0,2));
+	if(s.substr(8) == "AM"){
+		horas = horas%12;
+		if(horas < 10){
+			return "0"+ to_string(horas) + s.substr(2,6);
+		}
+		return to_string(horas) + s.substr(2,6);
+	}
+	else{
+		horas = horas%12 +12;
+		return to_string(horas) +s.substr(2,6);
+	}
+}
 
 int main(int argc, char** argv) {
 	vector<int> respuesta;
@@ -67,6 +100,7 @@ int main(int argc, char** argv) {
 	b[0]=3;
 	b[1]=2;
 	b[2]=1;
+	cout<<"Compare the triplets"<<endl;
 	cout<<"primera prueba"<<endl;
 	respuesta =Compare_the_triples_1(a, b);
 	
@@ -98,6 +132,14 @@ int main(int argc, char** argv) {
  	cout<< respuesta[0]<<endl;
 	cout<< respuesta[1]<<endl;
 	
+	cout <<"Time conversion"<<endl;
+	cout <<"Prueba 1"<<endl;
+	cout <<time_conversion_1("02:55:60PM")<<endl;
+	cout <<time_conversion_2("02:55:60PM")<<endl;
+	
+	cout <<"Prueba 2"<<endl;
+	cout <<time_conversion_1("12:55:60AM")<<endl;
+	cout <<time_conversion_2("12:55:60AM")<<endl;
 	
 	return 0;
 }
