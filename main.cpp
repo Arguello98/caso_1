@@ -53,6 +53,15 @@ vector <int> Compare_the_triples_2(vector<int> a, vector<int> b){
 	return resultado;
 }
 
+/*
+	Time Conversion
+	La implementacion time_conversion_2 es mas eficiente que
+	time_conversion_1 debido a que la primera tiene mas comparaciones
+	a la hora de encontrar si hay que modificar el valor de la hora.En
+	cambio la segunda implementacion usa la division entera para encontrar 
+	el valor de las horas, lo cual es mas rapido.
+
+*/
 string time_conversion_1(string s){	
 	int horas = stoi(s.substr(0,2));
 	if(s.substr(8) == "AM"){
@@ -86,6 +95,10 @@ string time_conversion_2(string s){
 		return to_string(horas) +s.substr(2,6);
 	}
 }
+
+
+
+
 
 int main(int argc, char** argv) {
 	vector<int> respuesta;
