@@ -97,7 +97,44 @@ string time_conversion_2(string s){
 }
 
 
+/*subaaray division */
 
+int subarray_division_1(vector<int> s, int d, int m) {
+    int r = 0;
+    int contador = 0;
+    for (int i = 0; i < s.size(); i++) {
+        contador = 0;
+        for (int j = 0; j < m; j++) {
+            contador += s[i+j];
+        }
+        if(contador == d){
+            r++;
+        }
+    }
+    return r;
+}
+
+int subarray_division_2(vector<int> s, int d, int m) {
+    int r = 0;
+    int suma = 0;
+    int i = 0;
+    int j = 0;
+    while(j < s.size()){
+    	if(j-i == m ){
+    		if(suma == d){
+    		 	r++;
+			}
+			suma -= s[i];
+			i++;
+		}
+		else{
+			suma+=s[j];
+			cout<<s[j]<<endl;
+			j++;
+		}
+	}
+    return r;
+}
 
 
 int main(int argc, char** argv) {
@@ -153,6 +190,28 @@ int main(int argc, char** argv) {
 	cout <<"Prueba 2"<<endl;
 	cout <<time_conversion_1("12:55:60AM")<<endl;
 	cout <<time_conversion_2("12:55:60AM")<<endl;
+	
+	cout<<"subarray division"<<endl;
+	vector<int> sb(5);
+	sb[0] = 1;
+	sb[1] = 2;
+	sb[2] = 1;
+	sb[3] = 3;
+	sb[4] = 2;
+	
+	cout <<"Prueba 1"<<endl;
+	cout <<subarray_division_1(sb,3,2)<<endl;
+	cout <<subarray_division_2(sb,3,2)<<endl;
+	
+	sb[0] = 1;
+	sb[1] = 1;
+	sb[2] = 1;
+	sb[3] = 1;
+	sb[4] = 1;
+	cout <<"Prueba 2"<<endl;
+	cout <<subarray_division_1(sb,3,12)<<endl;
+	cout <<subarray_division_2(sb,3,12)<<endl;
+	
 	
 	return 0;
 }
