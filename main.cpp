@@ -97,7 +97,11 @@ string time_conversion_2(string s){
 }
 
 
-/*subaaray division */
+/*	Subaaray division 
+	Como en los casos anteriores la primera implementacion no es la mas eficiente.
+	Esto se debe a que la primera implementacion hace uso de 2 ciclos, mientras
+	que la segunda solo hace 1 ciclo, recorriendo menor cantidad de veces el vector.
+*/
 
 int subarray_division_1(vector<int> s, int d, int m) {
     int r = 0;
@@ -129,13 +133,38 @@ int subarray_division_2(vector<int> s, int d, int m) {
 		}
 		else{
 			suma+=s[j];
-			cout<<s[j]<<endl;
 			j++;
 		}
 	}
     return r;
 }
 
+void minion_game(string s){
+	int Kevin = 0;
+	int Stuart = 0;
+	string letra= "";
+	for(int i= 0; i<s.size(); i++){
+		letra = s.substr(i,1);
+		if(letra== "A" || letra== "E" || letra =="I" || letra=="O"|| letra=="U"){
+			Kevin+= s.size()-i;
+		}
+		else{
+			Stuart+= s.size()-i;
+		}
+	}
+	if(Stuart<Kevin){
+		cout<<"Kevin " + to_string(Kevin)<<endl;
+	}
+	else{
+		if(Stuart>Kevin){
+			cout<<"Stuart " + to_string(Stuart)<<endl;
+		}
+		else{
+			cout<<"Draw"<<endl;
+		}
+	}
+	
+}
 
 int main(int argc, char** argv) {
 	vector<int> respuesta;
@@ -212,6 +241,7 @@ int main(int argc, char** argv) {
 	cout <<subarray_division_1(sb,3,12)<<endl;
 	cout <<subarray_division_2(sb,3,12)<<endl;
 	
-	
+	cout<<"The minion gamne"<<endl;
+	minion_game("BANANA");
 	return 0;
 }
