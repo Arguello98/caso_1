@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <string>
+#include<map>
 using namespace std;
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
@@ -139,6 +140,7 @@ int subarray_division_2(vector<int> s, int d, int m) {
     return r;
 }
 
+/*minio game */
 void minion_game(string s){
 	int Kevin = 0;
 	int Stuart = 0;
@@ -164,6 +166,45 @@ void minion_game(string s){
 		}
 	}
 	
+}
+
+
+
+/*Pairs*/
+
+int Pairs(vector<int> arr, int k){
+	map <int, int> mapa;
+	int respuesta = 0;
+	
+	for(int i = 0; i< arr.size();i++){
+		if(mapa.find(arr[i]+k) != mapa.end()){
+			respuesta++;
+		}
+		if(mapa.find(abs(arr[i]-k)) != mapa.end()){
+			respuesta++;
+		}
+		mapa.insert({arr[i],i});
+	}
+	return respuesta;
+}
+
+/*Cipher*/
+
+string Cipher(string s, int n){
+	int suma =0;
+	int temporal = 0;
+	string resultado= "";
+	map <int, int> mapa;
+	for(int i = 0; i < s.length()-n+1;i++){
+		if(i>=n){
+			suma -= mapa.find(i-n)->second;
+		}
+		temporal = (stoi(s.substr(i,1)) + suma)%2;
+		mapa.insert({i,temporal});
+		suma += temporal;
+		resultado += to_string(temporal);
+	}
+	return resultado;
 }
 
 int main(int argc, char** argv) {
@@ -242,6 +283,37 @@ int main(int argc, char** argv) {
 	cout <<subarray_division_2(sb,3,12)<<endl;
 	
 	cout<<"The minion gamne"<<endl;
+	cout <<"Prueba BANANA"<<endl;
 	minion_game("BANANA");
+	
+	cout<<"Prueba CAAAAASA"<<endl;
+	minion_game("CAAAASA");
+	
+	sb[0] = 1;
+	sb[1] = 5;
+	sb[2] = 3;
+	sb[3] = 4;
+	sb[4] = 2;
+	
+	cout <<"Pairs"<<endl;
+	cout <<"Prueba 1"<<endl;
+	cout<< Pairs(sb,2)<<endl;
+	
+	
+	sb[0] = 4;
+	sb[1] = 7;
+	sb[2] = 3;
+	sb[3] = 8;
+	sb[4] = 10;
+	cout <<"Prueba 2"<<endl;
+	cout<< Pairs(sb,3)<<endl;
+	
+	cout<<"Cipher"<<endl;
+	cout<<"Pruebas 1"<<endl;
+	cout<< Cipher("1110100110",4)<<endl;
+	
+	cout<<"Pruebas 2"<<endl;
+	cout<< Cipher("1110001",2)<<endl;
+	
 	return 0;
 }
