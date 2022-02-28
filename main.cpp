@@ -221,19 +221,20 @@ int main(int argc, char** argv) {
 	b[1]=2;
 	b[2]=1;
 	cout<<"Compare the triplets"<<endl;
-	cout<<"primera prueba"<<endl;
-	respuesta =Compare_the_triples_1(a, b);
+	cout<<"primera prueba "<<endl;
+	cout <<"Entrada : [1,2,3] [3,2,1]"<<endl;
 	
+	respuesta =Compare_the_triples_1(a, b);
  	cout<< respuesta[0]<<endl;
 	cout<< respuesta[1]<<endl;
 	
 	respuesta =Compare_the_triples_2(a, b);
-	
  	cout<< respuesta[0]<<endl;
 	cout<< respuesta[1]<<endl;
 	
 	
 	cout<<"segunda prueba"<<endl;
+	cout <<"Entrada : [3,3,3] [2,2,0]"<<endl;
 	a[0]=3;
 	a[1]=3;
 	a[2]=3;
@@ -254,10 +255,12 @@ int main(int argc, char** argv) {
 	
 	cout <<"Time conversion"<<endl;
 	cout <<"Prueba 1"<<endl;
+	cout <<"Entrada : 02:55:60PM"<<endl;
 	cout <<time_conversion_1("02:55:60PM")<<endl;
 	cout <<time_conversion_2("02:55:60PM")<<endl;
 	
 	cout <<"Prueba 2"<<endl;
+	cout <<"Entrada : 12:55:60AM"<<endl;
 	cout <<time_conversion_1("12:55:60AM")<<endl;
 	cout <<time_conversion_2("12:55:60AM")<<endl;
 	
@@ -270,6 +273,7 @@ int main(int argc, char** argv) {
 	sb[4] = 2;
 	
 	cout <<"Prueba 1"<<endl;
+	cout <<"Entrada : [1,2,1,3,2]"<<endl;
 	cout <<subarray_division_1(sb,3,2)<<endl;
 	cout <<subarray_division_2(sb,3,2)<<endl;
 	
@@ -279,14 +283,17 @@ int main(int argc, char** argv) {
 	sb[3] = 1;
 	sb[4] = 1;
 	cout <<"Prueba 2"<<endl;
+	cout <<"Entrada : [1,1,1,1,1]"<<endl;
 	cout <<subarray_division_1(sb,3,12)<<endl;
 	cout <<subarray_division_2(sb,3,12)<<endl;
 	
 	cout<<"The minion gamne"<<endl;
-	cout <<"Prueba BANANA"<<endl;
+	cout <<"Prueba 1"<<endl;
+	cout <<"Entrada : BANANA"<<endl;
 	minion_game("BANANA");
 	
-	cout<<"Prueba CAAAAASA"<<endl;
+	cout<<"Prueba 2"<<endl;
+	cout <<"Entrada : CAAAASA"<<endl;
 	minion_game("CAAAASA");
 	
 	sb[0] = 1;
@@ -297,6 +304,7 @@ int main(int argc, char** argv) {
 	
 	cout <<"Pairs"<<endl;
 	cout <<"Prueba 1"<<endl;
+	cout <<"Entrada : [1,5,3,4,2] 2"<<endl;
 	cout<< Pairs(sb,2)<<endl;
 	
 	
@@ -306,13 +314,16 @@ int main(int argc, char** argv) {
 	sb[3] = 8;
 	sb[4] = 10;
 	cout <<"Prueba 2"<<endl;
+	cout <<"Entrada : [4,7,3,8,10] 3"<<endl;
 	cout<< Pairs(sb,3)<<endl;
 	
 	cout<<"Cipher"<<endl;
 	cout<<"Pruebas 1"<<endl;
+	cout <<"Entrada : 1110100110 4"<<endl;
 	cout<< Cipher("1110100110",4)<<endl;
 	
 	cout<<"Pruebas 2"<<endl;
+	cout <<"Entrada : 1110001 2"<<endl;
 	cout<< Cipher("1110001",2)<<endl;
 	
 	return 0;
